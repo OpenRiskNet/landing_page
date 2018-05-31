@@ -1,67 +1,137 @@
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<body>
-<h1>Accessing OpenRiskNet applications as an end user</h1>
-<h2>How to login</h2>
-<p>The OpenRiskNet reference site using social authentication providers for managing logins. 
-Currently the following providers are supported:
-<ul>
-<li>LinkedIn</li>
-<li>GitHub</li>
-</ul>
-<p>We prefer you use LinkedIn if possible as that potentially allows us to use LinkedIn for collaboration
-and communication amongst our users.</p>
+    <title>OpenRiskNet e-infrastructure</title>
 
-<p>Using a social  means that we NEVER see your password.
-You authenticate with the social provider and if successful they forward you back to the ORN site.
-We only store minimal information about you, your name and email.
-</p>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://openrisknet.org/frontend/styles/main.css">
+    <link rel="stylesheet" href="./custom.css">
 
-<p>The OpenRiskNet applications use a single sign on (SSO) system so that once you are logged in you are
-logged in to all ORN applcations on the site. No need for multiple usernames and passwords. The first time
-you access an application that requires authentication you will be taken to the login page and you specify
-which social provider to use.
-</p>
+    <link rel="apple-touch-icon" sizes="57x57" href="https://openrisknet.org/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://openrisknet.org/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://openrisknet.org/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://openrisknet.org/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://openrisknet.org/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://openrisknet.org/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://openrisknet.org/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://openrisknet.org/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://openrisknet.org/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://openrisknet.org/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://openrisknet.org/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://openrisknet.org/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://openrisknet.org/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://openrisknet.org/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://openrisknet.org/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
-<img src="login-screen.png" alt="login screen" width="30%"/>
+  </head>
 
-<p>Choose the login provider on the right hand side (preferably use LinkedIn) and you will be taken to to that site and
-asked to log in (if not already logged in). The first time you do this you will be asked to confirm that you want OpenRiskNet 
-to use your login. You must agree to this. Once you login you are automatically redirected back to the OpenRiskNet site.
-</p>
+  <body>
+    <header>
+      <nav class="navbar fixed-top navbar-toggleable-md navbar-light">
+        <div class="container">
+          <div class="navbar-brand">
+            <a href="index.html"><img src="https://openrisknet.org/images/orn-logo.png" alt="OpenRiskNet"></a>
+            <br/>
+            <a href="index.html" class="tagline">Risk assessment e-infrastructure</a>
+          </div>
+          <div class="navbar-collapse d-none d-lg-block" id="navbar">
+            <ul class="navbar-nav mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="https://openrisknet.org/about/" target="_blank">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-<h3>Notes</h3>
-<ol>
-<li>We have noticed that using the LinkedIn login you sometimes get a 504 error after logging in to LinkedIn 
-(you are not successfully redirected to the OpenRiskNet site). If you try a second time this should work. 
-We are working to resolve this.</li>
-<li>If you log in with multiple social providers that use the same email address then you will be taken through 
-extra steps to link the two logins. Best to avoid this by sticking with a single provider.</li>
-<li>This project is at the mid-point of a three year schedule. Much work still reamins to be done.</li>
-</ol>
+    <main>
+      <div class="page-default">
+        <section class="section section--default">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 offset-lg-1">
+                <h1>Accessing OpenRiskNet applications as an end user</h1>
+                <h2>How to login</h2>
+                <p>The OpenRiskNet reference site using social authentication providers for managing logins. Currently the following providers
+                  are supported:</p>
+                <ul>
+                  <li>LinkedIn</li>
+                  <li>GitHub</li>
+                </ul>
+                <p>We prefer you use LinkedIn if possible as that potentially allows us to use LinkedIn for collaboration and communication
+                  amongst our users.</p>
 
-<h2>Terms of use</h2>
-<p>We provide open access to the OpenRiskNet applications on a "best effort" basis to allow users to evaluate and test 
-the environment. This environment is not suitable for production use or for handling data that is confidential. Instead you
-should set up your own OpenRiskNet VRE that is under your control. Information on this can be found 
-<a href="https://github.com/OpenRiskNet/home/tree/master/openshift" target="_new">here</a>.
-</p>
-<p>We do not restrict who uses the OpenRiskNet applications, but as the resources on which it runs are limited we expect 
-usage to be resticted to a reasonable level. If we consider this is being abused then we may disable accounts or 
-restrict access to particular applications.
-</p>
+                <p>Using a social authentication provider means that we NEVER see your password. You authenticate with the social provider and if successful they forward
+                  you back to the ORN site. We only store minimal information about you, your name and email.
+                </p>
 
-<h2>Support</h2>
-<p>We aim to support our users on a "best effort" basis. We cannot provide guarantees of response times, but we aim to assist as best we can.
-If you need support the best mecahanism is through our <a href="https://openrisknet.freshdesk.com/" target="_new">FreshDesk support system</a>.
+                <p>The OpenRiskNet applications use a single sign on (SSO) system so that once you are logged in you are logged in to all ORN
+                  applcations on the site. No need for multiple usernames and passwords. The first time you access an application that requires
+                  authentication you will be taken to the login page and you specify which social provider to use.
+                </p>
 
-<hr/>
-<p>This project is funded by the European Union</p>
+                <p>
+                  <img src="login-screen.png" alt="login screen" width="60%" />
+                </p>
 
-<p>OpenRiskNet: Open e-Infrastructure to Support Data Sharing, Knowledge Integration and in silico Analysis and Modelling in Risk Assessment
-<br/>
-Project Number 731075
-</p>
+                <p>Choose the login provider on the right hand side (preferably use LinkedIn) and you will be taken to that site and asked
+                  to log in (if not already logged in). The first time you do this you will be asked to confirm that you want OpenRiskNet
+                  to use your login. You must agree to this. Once you login you are automatically redirected back to the OpenRiskNet site.
+                </p>
 
-</body>
+                <h3>Notes</h3>
+                <ol>
+                  <li>We have noticed that using the LinkedIn login you sometimes get a 504 error after logging in to LinkedIn (you are not successfully
+                    redirected to the OpenRiskNet site). If you try a second time this should work. We are working to resolve this.
+                  </li>
+                  <li>If you log in with multiple social providers that use the same email address then you will be taken through extra steps
+                    to link the two logins. Best to avoid this by sticking with a single provider.</li>
+                  <li>This project is at the mid-point of a three year schedule. Much work still reamins to be done.</li>
+                </ol>
+
+                <h2>Terms of use</h2>
+                <p>We provide open access to the OpenRiskNet applications on a "best effort" basis to allow users to evaluate and test the environment.
+                  This environment is not suitable for production use or for handling data that is confidential. Instead you should set up
+                  your own OpenRiskNet VRE that is under your control. Information on this can be found
+                  <a href="https://github.com/OpenRiskNet/home/tree/master/openshift" target="_new">here</a>.
+                </p>
+                <p>We do not restrict who uses the OpenRiskNet applications, but as the resources on which it runs are limited we expect usage
+                  to be resticted to a reasonable level. If we consider this is being abused then we may disable accounts or restrict access
+                  to particular applications.
+                </p>
+
+                <h2>Support</h2>
+                <p>We aim to support our users on a "best effort" basis. We cannot provide guarantees of response times, but we aim to assist
+                  as best we can. If you need support the best mecahanism is through our
+                  <a href="https://openrisknet.freshdesk.com/" target="_new">FreshDesk support system</a>.</p>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+            OpenRiskNet is a 3 year project funded by the European Commission within Horizon2020 EINFRA-22-2016 Programme (Grant Agreement
+            731075; start date 1 December 2016).
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 eu-logo">
+            <img src="https://openrisknet.org/images/eu.png">
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
 </html>

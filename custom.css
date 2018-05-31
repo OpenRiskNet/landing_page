@@ -1,0 +1,18 @@
+.page-home .hero .hero__heading {
+  font-size: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.section--text-listing {
+  text-align: left;
+}
+
+.section--text-listing ul {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0rem;
+}
+
+.section--text-listing ul li:before {
+  content: "→";
+}
