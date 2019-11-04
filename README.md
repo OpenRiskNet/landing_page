@@ -3,10 +3,11 @@
 ## OpenShift deployment
 
 Use the `openshift/httpd` image to deploy Apache HTTPd. THis can be done using the `Apache HTTP Server` 
-application in the OpenShift application catalog. 
+application in the OpenShift application catalog (not the `Apache HTTP Server (httpd)` application). 
 
-Specify this GitHub repo as the contents and probably an Application hostname to use as the URL that will
-be used to access the pages.
+Specify this GitHub repo in the **Git Repository URL** field and
+set the **Application Hostname** field to use as the URL that will
+be used to access the pages (typically `home.prod.openrisknet.org`).
 
 Create the application. It will take a few minutes to build and deploy.
 Once working you probably want to add TLS certificates. If [ACME controller](https://github.com/tnozicka/openshift-acme) 
