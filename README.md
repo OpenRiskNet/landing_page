@@ -2,8 +2,8 @@
 
 ## OpenShift deployment
 
-Use the `openshift/httpd` image to deploy Apache HTTPd. THis can be done using the `Apache HTTP Server` 
-application in the OpenShift application catalog (not the `Apache HTTP Server (httpd)` application). 
+Use the `openshift/httpd` image to deploy Apache HTTPd. This can be done using the `Apache HTTP Server` 
+application in the OpenShift application catalog (_NOT_ the `Apache HTTP Server (httpd)` application). 
 
 Specify this GitHub repo in the **Git Repository URL** field and
 set the **Application Hostname** field to use as the URL that will
