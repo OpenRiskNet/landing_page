@@ -32,3 +32,4 @@ appliication name). In the configuration section you will find the GitHub webhoo
 In this GitHub repo add a webhook (found in the Settings section). Specify the webhook url you found above.
 The `content type` should be `application/json`. Include the secret if you specified one when creating the 
 application.
+
