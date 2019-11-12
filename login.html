@@ -66,8 +66,9 @@
             <div class="row">
               <div class="col-lg-10 offset-lg-1">
                 <h1>Accessing OpenRiskNet applications as an end user</h1>
+                <a name="how_to_login"></a>
                 <h2>How to login</h2>
-                <p>The OpenRiskNet reference site using social authentication providers for managing logins. Currently the following providers
+                <p>The OpenRiskNet reference site using social Identity Providers for managing logins. Currently the following providers
                   are supported:</p>
                 <ul>
                   <li>LinkedIn</li>
@@ -76,13 +77,13 @@
                 <p>We prefer you use LinkedIn if possible as that potentially allows us to use LinkedIn for collaboration and communication
                   amongst our users.</p>
 
-                <p>Using a social authentication provider means that we NEVER see your password. You authenticate with the social provider and if successful they forward
+                <p>Using a social Identity Providers means that we NEVER see your password. You authenticate with the social provider and if successful they forward
                   you back to the ORN site. We only store minimal information about you, your name and email.
                 </p>
 
                 <p>The OpenRiskNet applications use a single sign on (SSO) system so that once you are logged in you are logged in to all ORN
-                  applcations on the site. No need for multiple usernames and passwords. The first time you access an application that requires
-                  authentication you will be taken to the login page and you specify which social provider to use.
+                  applications on the site. No need for multiple usernames and passwords. The first time you access an application that requires
+                  authentication you will be taken to the login page and you specify which Identity Providers to use.
                 </p>
 
                 <p>
@@ -94,16 +95,47 @@
                   to use your login. You must agree to this. Once you login you are automatically redirected back to the OpenRiskNet site.
                 </p>
 
+                <a name="api_access"></a>
+                <h3>API Access</h3>
+
+                <p>When you log in using an Identity Provider such as GitHub or LinkedIn you are essentially linking those logins to
+                  your SSO identity. You have a SSO username (determined from the details provided by the Identity Provider)
+                  but that SSO account does not by default get a password as you are logging in through the Identity Provider.
+                </p>
+
+                <p>However, if you are accessing one of the OpenRiskNet APIs and need to get an authentication token then you will need a password.
+                  To set one up go to
+                  <a href="https://sso.prod.openrisknet.org/auth/realms/openrisknet/account" alt="account page" target="_new">your account page</a>,
+                  login through the GitHub or LinkedIn Identity Provider, and then you can set yourself a password
+                  (goto the <strong>Password</strong> section).
+                  Then you should be able to obtain an API token with that username and password.
+                </p>
+
+                <p>To obtain a token use a client such as curl. Typically do something like this (details may differ between
+                different APIs):</p>
+
+                <code>
+                  token=$(curl -d "grant_type=password" -d "client_id=client" -d "username=username" -d "password=password"
+                  sso.prod.openrisknet.org/auth/realms/openrisknet/protocol/openid-connect/token 2> /dev/null
+                  | jq -r '.access_token')
+                </code>
+                <p>Replace <strong>client</strong>, <strong>username</strong> and <strong>password</strong> with the
+                  appropriate values. You can use 'echo $token' to make sure you have obtained a token.</p>
+
+                <p>Note that assumes you also have 'jq' installed. If not then just execute the basic curl command and
+                copy out the access token part.</p>
+
+                <a name="notes"></a>
                 <h3>Notes</h3>
                 <ol>
                   <li>We have noticed that using the LinkedIn login you sometimes get a 504 error after logging in to LinkedIn (you are not successfully
                     redirected to the OpenRiskNet site). If you try a second time this should work. We are working to resolve this.
                   </li>
-                  <li>If you log in with multiple social providers that use the same email address then you will be taken through extra steps
+                  <li>If you log in with multiple Identity Providers that use the same email address then you will be taken through extra steps
                     to link the two logins. Best to avoid this by sticking with a single provider.</li>
-                  <li>This project is at the mid-point of a three year schedule. Much work still reamins to be done.</li>
                 </ol>
 
+                <a name="terms_of_use"></a>
                 <h2>Terms of use</h2>
                 <p>We provide open access to the OpenRiskNet applications on a "best effort" basis to allow users to evaluate and test the environment.
                   This environment is not suitable for production use or for handling data that is confidential. Instead you should set up
@@ -115,6 +147,7 @@
                   to particular applications.
                 </p>
 
+                <a name="support"></a>
                 <h2>Support</h2>
                 <p>We aim to support our users on a "best effort" basis. We cannot provide guarantees of response times, but we aim to assist
                   as best we can. If you need support the best mecahanism is through our
